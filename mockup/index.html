@@ -77,6 +77,8 @@
     }
     .nav a:hover::after { width: 100%; }
     .header-ctas { display: flex; align-items: center; gap: 12px; }
+    .header-ctas .btn-outline { border-color: rgba(255,255,255,0.55); color: var(--dark-900); background: rgba(255,255,255,0.25); }
+    .header-ctas .btn-outline:hover { background: rgba(255,255,255,0.4); border-color: rgba(255,255,255,0.8); }
     .menu-toggle { display: none; width: 44px; height: 44px; border-radius: 12px; background: var(--brand); border: none; font-size: 20px; }
 
     /* HERO */
@@ -233,13 +235,20 @@
     .service-card {
       background: var(--white); border-radius: var(--radius-lg); padding: 32px 24px;
       box-shadow: var(--shadow-sm); border: 1px solid var(--gray-200);
-      transition: all .25s var(--ease);
+      transition: all .25s var(--ease); position: relative; overflow: hidden;
     }
     .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--brand); }
+    .service-card:hover .service-icon { background: var(--brand); transform: scale(1.05); }
+    .service-card .service-extra {
+      max-height: 0; opacity: 0; overflow: hidden;
+      transition: all .35s var(--ease); margin-top: 0;
+      font-size: 13px; color: var(--gray-600);
+    }
+    .service-card:hover .service-extra { max-height: 120px; opacity: 1; margin-top: 14px; }
     .service-icon {
       width: 60px; height: 60px; border-radius: 16px;
       background: var(--brand-100); display: flex; align-items: center; justify-content: center;
-      font-size: 26px; margin-bottom: 20px;
+      font-size: 26px; margin-bottom: 20px; transition: all .25s var(--ease);
     }
     .service-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
     .service-card p { font-size: 14px; color: var(--gray-500); }
@@ -411,7 +420,7 @@
       </nav>
       <div class="header-ctas">
         <a href="#locator" class="btn btn-brand">Encontrar Posto</a>
-        <a href="#app" class="btn btn-outline">Baixar App</a>
+        <a href="#app" class="btn btn-outline header-btn-app">Baixar App</a>
         <button class="menu-toggle" aria-label="Menu">☰</button>
       </div>
     </div>
@@ -421,7 +430,7 @@
     <div class="hero-bg" role="img" aria-label="Posto Rede Gasfort ao entardecer"></div>
     <div class="container hero-grid">
       <div class="hero-content">
-        <div class="hero-badge">⭐ 30 anos de história no Rio Grande do Sul</div>
+        <div class="hero-badge">✅ Combustível com garantia de procedência</div>
         <h1>A energia que <em>move o RS</em></h1>
         <p>Mais de 30 postos de combustíveis, lojas de conveniência e cuidados automotivos com a tradição e confiança que só a Rede Gasfort tem.</p>
         <div class="hero-ctas">
@@ -506,6 +515,22 @@
     </div>
   </section>
 
+    <!-- SEÇÃO LOGOS PARCEIROS -->
+  <section class="section partners" style="padding-top: 40px; padding-bottom: 40px;">
+    <div class="container">
+      <p class="partners-label" style="text-align:center; font-size:13px; color:var(--gray-500); font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-bottom:28px;">Bandeiras parceiras da Rede Gasfort</p>
+      <div class="partners-logos" style="display:flex; justify-content:center; align-items:center; gap:48px; flex-wrap:wrap;">
+        <img src="assets/gasfort-logo.jpg" alt="Gasfort" style="height:54px; width:auto; object-fit:contain; filter:grayscale(100%) opacity(0.7); transition:all .25s;" onmouseover="this.style.filter='none'" onmouseout="this.style.filter='grayscale(100%) opacity(0.7)'">
+        <img src="assets/logo-ipiranga.png" alt="Ipiranga" style="height:44px; width:auto; object-fit:contain; filter:grayscale(100%) opacity(0.7); transition:all .25s;" onmouseover="this.style.filter='none'" onmouseout="this.style.filter='grayscale(100%) opacity(0.7)'">
+        <img src="assets/logo-charrua.png" alt="Charrua" style="height:44px; width:auto; object-fit:contain; filter:grayscale(100%) opacity(0.7); transition:all .25s;" onmouseover="this.style.filter='none'" onmouseout="this.style.filter='grayscale(100%) opacity(0.7)'">
+        <img src="assets/logo-sta-lucia.jpg" alt="Santa Lúcia" style="height:44px; width:auto; object-fit:contain; filter:grayscale(100%) opacity(0.7); transition:all .25s;" onmouseover="this.style.filter='none'" onmouseout="this.style.filter='grayscale(100%) opacity(0.7)'">
+        <span style="display:flex; align-items:center; gap:8px; font-family:'Plus Jakarta Sans', sans-serif; font-weight:800; font-size:18px; color:var(--dark-800); filter:grayscale(100%) opacity(0.7); transition:all .25s;" onmouseover="this.style.filter='none'" onmouseout="this.style.filter='grayscale(100%) opacity(0.7)'">
+          <span style="display:inline-block; width:32px; height:32px; border-radius:50%; background:#FBCE07; display:flex; align-items:center; justify-content:center; font-size:14px; color:#000;">S</span> Shell
+        </span>
+      </div>
+    </div>
+  </section>
+
   <section class="section locator" id="locator">
     <div class="container">
       <div class="section-head reveal">
@@ -545,14 +570,14 @@
         <p>Combustíveis de qualidade, conveniência, cuidados com o carro e muito mais.</p>
       </div>
       <div class="services-grid reveal">
-        <div class="service-card"><div class="service-icon">⛽</div><h3>Combustíveis</h3><p>Gasolina, etanol, diesel e aditivados das principais bandeiras do mercado.</p></div>
-        <div class="service-card"><div class="service-icon">🛒</div><h3>Loja de Conveniência</h3><p>Produtos essenciais, bebidas, snacks e itens para a sua viagem.</p></div>
-        <div class="service-card"><div class="service-icon">🛢️</div><h3>Troca de Óleo</h3><p>Troca rápida e segura com lubrificantes de qualidade para seu veículo.</p></div>
-        <div class="service-card"><div class="service-icon">🚿</div><h3>Lavagem</h3><p>Lava-rápido e lavanderia para deixar seu carro limpo na viagem.</p></div>
-        <div class="service-card"><div class="service-icon">🍽️</div><h3>Restaurante</h3><p>Lanchonete e restaurante em unidades selecionadas para sua parada completa.</p></div>
-        <div class="service-card"><div class="service-icon">🌙</div><h3>24 Horas</h3><p>Unidades abertas ininterruptamente para você abastecer a qualquer hora.</p></div>
-        <div class="service-card"><div class="service-icon">🎁</div><h3>Fidelidade</h3><p>No App Gasfort você acumula pontos e troca por produtos e descontos.</p></div>
-        <div class="service-card"><div class="service-icon">💼</div><h3>Frotas</h3><p>Cotação personalizada e faturamento para empresas e frotas.</p></div>
+        <div class="service-card"><div class="service-icon">⛽</div><h3>Combustíveis</h3><p>Gasolina, etanol, diesel e aditivados das principais bandeiras do mercado.</p><div class="service-extra">Abastecimento com qualidade certificada e procedência garantida em todas as unidades.</div></div>
+        <div class="service-card"><div class="service-icon">🛒</div><h3>Loja de Conveniência</h3><p>Produtos essenciais, bebidas, snacks e itens para a sua viagem.</p><div class="service-extra">am/pm, Shell Select e conveniências próprias com ofertas semanais.</div></div>
+        <div class="service-card"><div class="service-icon">🛢️</h3><p>Troca rápida e segura com lubrificantes de qualidade para seu veículo.</p><div class="service-extra">Troca de óleo, filtros e revisão básica com agilidade para você seguir viagem.</div></div>
+        <div class="service-card"><div class="service-icon">🚿</div><h3>Lavagem</h3><p>Lava-rápido e lavanderia para deixar seu carro limpo na viagem.</p><div class="service-extra">Lavagem externa, limpeza interna e higienização em unidades selecionadas.</div></div>
+        <div class="service-card"><div class="service-icon">🍽️</div><h3>Restaurante</h3><p>Lanchonete e restaurante em unidades selecionadas para sua parada completa.</p><div class="service-extra">Cafeteria, lanches e refeições em postos com estrutura de restaurante.</div></div>
+        <div class="service-card"><div class="service-icon">🌙</div><h3>24 Horas</h3><p>Unidades abertas ininterruptamente para você abastecer a qualquer hora.</p><div class="service-extra">Atendimento noturno e plantão 24h nas principais rotas do RS.</div></div>
+        <div class="service-card"><div class="service-icon">🎁</div><h3>Fidelidade</h3><p>No App Gasfort você acumula pontos e troca por produtos e descontos.</p><div class="service-extra">Cadastre-se gratuitamente, acumule pontos e resgate benefícios exclusivos.</div></div>
+        <div class="service-card"><div class="service-icon">💼</div><h3>Frotas</h3><p>Cotação personalizada e faturamento para empresas e frotas.</p><div class="service-extra">Contratos corporativos, faturamento e gestão de abastecimento para frotas.</div></div>
       </div>
     </div>
   </section>
@@ -677,10 +702,10 @@
         </div>
         <div class="footer-col">
           <h4>Fale Conosco</h4>
-          <a href="#">[E-mail mockup]</a>
-          <a href="#">[Telefone mockup]</a>
-          <a href="#">[WhatsApp mockup]</a>
-          <a href="#">Trabalhe Conosco</a>
+          <a href="mailto:contato@redegasfort.com.br">contato@redegasfort.com.br</a>
+          <a href="tel:+555130000000">(51) 3000-0000</a>
+          <a href="https://wa.me/555130000000" target="_blank">WhatsApp</a>
+          <a href="https://forms.gle/9o3a4ALs9uR8JG1w6" target="_blank">Trabalhe Conosco</a>
         </div>
       </div>
       <div class="footer-bottom">
@@ -693,6 +718,26 @@
       </div>
     </div>
   </footer>
+
+  <!-- BOTÃO WHATSAPP FLUTUANTE -->
+  <a href="https://wa.me/555130000000" target="_blank" class="whatsapp-float" aria-label="Fale conosco pelo WhatsApp">
+    <span>💬</span>
+  </a>
+
+  <style>
+    .whatsapp-float {
+      position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+      width: 60px; height: 60px; border-radius: 50%;
+      background: #25D366; color: #fff; font-size: 28px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+      transition: all .25s var(--ease); text-decoration: none;
+    }
+    .whatsapp-float:hover { transform: scale(1.08) rotate(-4deg); box-shadow: 0 12px 32px rgba(37, 211, 102, 0.45); }
+    @media (max-width: 768px) {
+      .whatsapp-float { width: 54px; height: 54px; font-size: 24px; bottom: 18px; right: 18px; }
+    }
+  </style>
 
   <div class="cookie" id="cookieBanner">
     <p>Utilizamos cookies para melhorar sua experiência. Ao continuar, você concorda com nossa política de privacidade.</p>
