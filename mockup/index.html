@@ -60,12 +60,12 @@
     /* HEADER */
     .header {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: rgba(255,255,255,0.72); backdrop-filter: blur(16px) saturate(180%);
+      background: rgba(255,255,255,0.35); backdrop-filter: blur(16px) saturate(180%);
       -webkit-backdrop-filter: blur(16px) saturate(180%);
       border-bottom: 1px solid rgba(255,255,255,0.18);
       transition: all .3s var(--ease);
     }
-    .header.scrolled { background: rgba(255,255,255,0.92); box-shadow: var(--shadow-sm); }
+    .header.scrolled { background: rgba(255,255,255,0.72); box-shadow: var(--shadow-sm); }
     .header-inner { display: flex; align-items: center; justify-content: space-between; height: 76px; }
     .logo { display: flex; align-items: center; gap: 12px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 20px; color: var(--dark); }
     .logo img { width: 44px; height: 44px; border-radius: 12px; object-fit: cover; }
