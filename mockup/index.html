@@ -788,7 +788,7 @@
 
     async function loadStations() {
       try {
-        const res = await fetch(CSV_URL + '&_=' + Date.now());
+        const res = await fetch(CSV_URL + '?v=' + Date.now());
         const text = await res.text();
         const rows = parseCSV(text);
         if (rows.length < 2) throw new Error('CSV vazio');
