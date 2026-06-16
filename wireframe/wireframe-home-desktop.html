@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wireframe Home — Rede Gasfort (Desktop)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand: #FFC400;
+      --brand-dark: #F2BA00;
+      --text: #1C1C1E;
+      --muted: #8E8E93;
+      --bg: #F5F5F7;
+      --surface: #FFFFFF;
+      --border: rgba(60,60,67,0.08);
+      --radius: 22px;
+      --shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: Inter, sans-serif; background: var(--bg); color: var(--text); line-height:1.5; }
+    a { text-decoration:none; color:inherit; }
+    img { max-width:100%; display:block; }
+    .container { max-width:1200px; margin:0 auto; padding:0 24px; }
+    .section { padding:80px 0; }
+    .section-title { text-align:center; margin-bottom:48px; }
+    .section-title h2 { font-size:36px; font-weight:800; letter-spacing:-0.8px; margin-bottom:12px; }
+    .section-title p { color: var(--muted); font-size:18px; }
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:14px 28px; border-radius:999px; font-weight:700; font-size:15px;
+      transition: transform .15s, background .2s; border:none; cursor:pointer;
+    }
+    .btn:active { transform: scale(0.97); }
+    .btn-primary { background: var(--text); color:#fff; }
+    .btn-primary:hover { background:#000; }
+    .btn-brand { background: var(--brand); color:var(--text); }
+    .btn-brand:hover { background: var(--brand-dark); }
+    .btn-outline { background:transparent; border:2px solid var(--text); color:var(--text); }
+
+    /* HEADER */
+    .header {
+      position:sticky; top:0; z-index:100;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+      border-bottom:1px solid var(--border);
+    }
+    .header-inner {
+      display:flex; align-items:center; justify-content:space-between;
+      height:72px;
+    }
+    .logo { display:flex; align-items:center; gap:12px; font-weight:800; font-size:20px; }
+    .logo-circle {
+      width:40px; height:40px; background:var(--brand); border-radius:10px;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .logo-circle img { width:28px; height:28px; object-fit:cover; border-radius:4px; }
+    .nav { display:flex; align-items:center; gap:32px; }
+    .nav a { font-weight:500; font-size:14px; color:var(--text); }
+    .nav a:hover { color:var(--brand-dark); }
+    .header-ctas { display:flex; align-items:center; gap:12px; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #1C1C1E 0%, #2C2C2E 100%);
+      color:#fff; padding:120px 0; position:relative; overflow:hidden;
+    }
+    .hero-inner { display:grid; grid-template-columns:1.1fr 1fr; gap:48px; align-items:center; }
+    .hero-text h1 { font-size:52px; font-weight:800; line-height:1.1; letter-spacing:-1.5px; margin-bottom:24px; }
+    .hero-text h1 span { color:var(--brand); }
+    .hero-text p { font-size:20px; color:rgba(255,255,255,0.75); margin-bottom:32px; max-width:520px; }
+    .hero-ctas { display:flex; gap:16px; }
+    .hero-image {
+      background: var(--surface); border-radius:var(--radius);
+      aspect-ratio:16/10; box-shadow:var(--shadow);
+      display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:18px;
+      overflow:hidden;
+    }
+    .hero-badge {
+      position:absolute; top:24px; right:24px;
+      background:var(--brand); color:var(--text); padding:10px 18px;
+      border-radius:999px; font-weight:700; font-size:13px;
+    }
+
+    /* STATS */
+    .stats {
+      background: var(--surface); border-radius:var(--radius);
+      box-shadow:var(--shadow); padding:40px 48px;
+      display:grid; grid-template-columns:repeat(4,1fr); gap:24px;
+      margin-top:-60px; position:relative; z-index:2;
+    }
+    .stat { text-align:center; }
+    .stat-number { font-size:40px; font-weight:800; color:var(--brand-dark); letter-spacing:-1px; }
+    .stat-label { font-size:14px; color:var(--muted); font-weight:500; margin-top:4px; }
+
+    /* CITIES */
+    .city-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .city-card {
+      background:var(--surface); border-radius:var(--radius); overflow:hidden;
+      box-shadow:var(--shadow); transition: transform .2s;
+    }
+    .city-card:hover { transform: translateY(-4px); }
+    .city-img {
+      background:linear-gradient(135deg, #E4E4E7, #D4D4D8); height:160px;
+      display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:14px;
+    }
+    .city-info { padding:24px; }
+    .city-info h3 { font-size:20px; font-weight:700; margin-bottom:6px; }
+    .city-info p { color:var(--muted); font-size:14px; margin-bottom:16px; }
+
+    /* SERVICES */
+    .service-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+    .service-card {
+      background:var(--surface); border-radius:var(--radius); padding:28px;
+      box-shadow:var(--shadow); text-align:center;
+    }
+    .service-icon {
+      width:56px; height:56px; background:rgba(255,196,0,0.15); border-radius:16px;
+      display:flex; align-items:center; justify-content:center; margin:0 auto 16px;
+      font-size:24px;
+    }
+    .service-card h3 { font-size:17px; font-weight:700; margin-bottom:8px; }
+    .service-card p { font-size:14px; color:var(--muted); }
+
+    /* APP CTA */
+    .app-section { background: var(--brand); color:var(--text); }
+    .app-inner { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
+    .app-text h2 { font-size:40px; font-weight:800; letter-spacing:-1px; margin-bottom:16px; }
+    .app-text p { font-size:18px; margin-bottom:28px; opacity:0.85; }
+    .app-badges { display:flex; gap:16px; }
+    .app-badge {
+      background:var(--text); color:#fff; padding:12px 20px; border-radius:12px;
+      font-weight:600; font-size:14px; display:flex; align-items:center; gap:8px;
+    }
+    .app-mockup {
+      background:var(--surface); border-radius:var(--radius); aspect-ratio:9/16;
+      max-width:280px; margin:0 auto; box-shadow:var(--shadow);
+      display:flex; align-items:center; justify-content:center; color:var(--muted);
+    }
+
+    /* TIMELINE */
+    .timeline { position:relative; max-width:900px; margin:0 auto; }
+    .timeline::before {
+      content:''; position:absolute; left:50%; top:0; bottom:0; width:2px;
+      background:var(--border); transform:translateX(-50%);
+    }
+    .timeline-item { display:grid; grid-template-columns:1fr 1fr; gap:48px; margin-bottom:48px; position:relative; }
+    .timeline-item:nth-child(even) .timeline-content { grid-column:2; }
+    .timeline-item:nth-child(even) .timeline-year { grid-column:1; text-align:right; }
+    .timeline-year { font-size:48px; font-weight:800; color:var(--brand); letter-spacing:-2px; }
+    .timeline-content { background:var(--surface); border-radius:var(--radius); padding:28px; box-shadow:var(--shadow); }
+    .timeline-content h3 { font-size:20px; font-weight:700; margin-bottom:8px; }
+    .timeline-content p { color:var(--muted); font-size:15px; }
+    .timeline-dot {
+      position:absolute; left:50%; top:12px; transform:translateX(-50%);
+      width:16px; height:16px; background:var(--brand); border-radius:50%;
+      border:4px solid var(--bg);
+    }
+
+    /* B2B */
+    .b2b-inner { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
+    .b2b-text h2 { font-size:36px; font-weight:800; letter-spacing:-1px; margin-bottom:16px; }
+    .b2b-text p { color:var(--muted); font-size:18px; margin-bottom:24px; }
+    .b2b-list { display:flex; flex-direction:column; gap:12px; margin-bottom:28px; }
+    .b2b-list li { list-style:none; display:flex; align-items:center; gap:10px; font-size:15px; }
+    .b2b-check { width:20px; height:20px; background:var(--brand); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; }
+    .b2b-form {
+      background:var(--surface); border-radius:var(--radius); padding:36px; box-shadow:var(--shadow);
+    }
+    .b2b-form h3 { font-size:22px; font-weight:700; margin-bottom:20px; }
+    .form-group { margin-bottom:16px; }
+    .form-group label { display:block; font-size:13px; font-weight:600; margin-bottom:6px; }
+    .form-group input, .form-group select {
+      width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--border);
+      font-family:inherit; font-size:15px;
+    }
+
+    /* FOOTER */
+    .footer { background:var(--text); color:#fff; padding:64px 0 32px; }
+    .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:48px; }
+    .footer-brand p { color:rgba(255,255,255,0.6); font-size:14px; margin-top:16px; max-width:280px; }
+    .footer-col h4 { font-size:15px; font-weight:700; margin-bottom:20px; }
+    .footer-col a { display:block; color:rgba(255,255,255,0.65); font-size:14px; margin-bottom:10px; }
+    .footer-col a:hover { color:var(--brand); }
+    .footer-bottom {
+      border-top:1px solid rgba(255,255,255,0.1); padding-top:24px;
+      display:flex; justify-content:space-between; align-items:center;
+      font-size:13px; color:rgba(255,255,255,0.5);
+    }
+
+    /* COOKIE BANNER */
+    .cookie {
+      position:fixed; bottom:0; left:0; right:0;
+      background:#fff; border-top:1px solid var(--border);
+      padding:16px 24px; display:flex; justify-content:center; align-items:center; gap:16px;
+      box-shadow:0 -4px 20px rgba(0,0,0,0.06); z-index:200;
+    }
+    .cookie p { font-size:14px; color:var(--text); }
+    .cookie button { padding:8px 16px; border-radius:999px; font-size:13px; font-weight:600; border:none; cursor:pointer; }
+    .cookie-accept { background:var(--brand); color:var(--text); }
+    .cookie-reject { background:transparent; color:var(--muted); }
+
+    /* MOCKUP LABELS */
+    .mockup-label { font-size:12px; color:#999; text-transform:uppercase; letter-spacing:1px; }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header-inner">
+      <div class="logo">
+        <div class="logo-circle"><img src="../gasfort-logo.jpg" alt="Gasfort"></div>
+        Rede Gasfort
+      </div>
+      <nav class="nav">
+        <a href="#sobre">Sobre</a>
+        <a href="#postos">Postos</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#app">App</a>
+        <a href="#empresas">Empresas</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <div class="header-ctas">
+        <a href="#postos" class="btn btn-brand">Encontrar Posto</a>
+        <a href="#app" class="btn btn-outline">Baixar App</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-badge">30 anos de história</div>
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <h1>A energia que move <span>o Rio Grande do Sul</span></h1>
+        <p>Mais de 30 anos abastecendo histórias, famílias e negócios com tradição, qualidade e confiança. Rede Gasfort: onde a parada é completa.</p>
+        <div class="hero-ctas">
+          <a href="#postos" class="btn btn-brand">Encontrar posto mais próximo</a>
+          <a href="#app" class="btn btn-outline" style="border-color:#fff; color:#fff;">Baixar o App</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        [FOTO MOCKUP — Posto Gasfort]
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="stats">
+      <div class="stat"><div class="stat-number">30+</div><div class="stat-label">anos de tradição</div></div>
+      <div class="stat"><div class="stat-number">25+</div><div class="stat-label">postos no RS</div></div>
+      <div class="stat"><div class="stat-number">12+</div><div class="stat-label">cidades atendidas</div></div>
+      <div class="stat"><div class="stat-number">5</div><div class="stat-label">bandeiras parceiras</div></div>
+    </div>
+  </div>
+
+  <section class="section" id="postos">
+    <div class="container">
+      <div class="section-title">
+        <h2>Nossos Postos</h2>
+        <p>Encontre a unidade Gasfort mais próxima de você.</p>
+      </div>
+      <div class="city-grid">
+        <div class="city-card">
+          <div class="city-img">[IMG MOCKUP — Porto Alegre]</div>
+          <div class="city-info">
+            <h3>Porto Alegre</h3>
+            <p>2 unidades • Gasfort e parceiros</p>
+            <a href="#" class="btn btn-primary" style="width:100%;">Ver postos</a>
+          </div>
+        </div>
+        <div class="city-card">
+          <div class="city-img">[IMG MOCKUP — Gramado]</div>
+          <div class="city-info">
+            <h3>Gramado</h3>
+            <p>1 unidade • Shell</p>
+            <a href="#" class="btn btn-primary" style="width:100%;">Ver postos</a>
+          </div>
+        </div>
+        <div class="city-card">
+          <div class="city-img">[IMG MOCKUP — Pelotas]</div>
+          <div class="city-info">
+            <h3>Pelotas</h3>
+            <p>1 unidade • Ipiranga</p>
+            <a href="#" class="btn btn-primary" style="width:100%;">Ver postos</a>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:36px;">
+        <a href="#" class="btn btn-brand">Ver todas as cidades</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="servicos" style="background:#fff;">
+    <div class="container">
+      <div class="section-title">
+        <h2>Serviços</h2>
+        <p>Tudo o que você precisa em uma só parada.</p>
+      </div>
+      <div class="service-grid">
+        <div class="service-card">
+          <div class="service-icon">⛽</div>
+          <h3>Combustíveis</h3>
+          <p>[Texto mockup sobre qualidade dos combustíveis.]</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🛒</div>
+          <h3>Loja de Conveniência</h3>
+          <p>[Texto mockup sobre produtos e praticidade.]</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🛢️</div>
+          <h3>Troca de Óleo</h3>
+          <p>[Texto mockup sobre cuidado com o veículo.]</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🚿</div>
+          <h3>Lavagem</h3>
+          <p>[Texto mockup sobre lavagem e lava-rápido.]</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🍽️</div>
+          <h3>Restaurante</h3>
+          <p>[Texto mockup sobre restaurante e lanchonete.]</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🌙</div>
+          <h3>24 Horas</h3>
+          <p>[Texto mockup sobre unidades abertas 24h.]</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🎁</div>
+          <h3>Fidelidade</h3>
+          <p>[Texto mockup sobre pontos e recompensas.]</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">💼</div>
+          <h3>Frotas</h3>
+          <p>[Texto mockup sobre cotação para empresas.]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section app-section" id="app">
+    <div class="container app-inner">
+      <div class="app-text">
+        <h2>App Gasfort</h2>
+        <p>Descontos, cashback e troca de pontos por produtos. Baixe agora e aproveite benefícios exclusivos em todos os nossos postos.</p>
+        <div class="app-badges">
+          <div class="app-badge">🍎 App Store</div>
+          <div class="app-badge">▶️ Google Play</div>
+        </div>
+      </div>
+      <div class="app-mockup">[MOCKUP APP — Celular]</div>
+    </div>
+  </section>
+
+  <section class="section" id="sobre">
+    <div class="container">
+      <div class="section-title">
+        <h2>Nossa História</h2>
+        <p>Três décadas de tradição e evolução.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">1995</div>
+          <div class="timeline-content">
+            <h3>O começo</h3>
+            <p>[Texto mockup — início da Rede de Postos Assunção em Igrejinha/RS.]</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2008</div>
+          <div class="timeline-content">
+            <h3>Crescimento e adaptação</h3>
+            <p>[Texto mockup — aquisições, novas bandeiras e expansão pelo RS.]</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2024</div>
+          <div class="timeline-content">
+            <h3>Nascimento da Gasfort</h3>
+            <p>[Texto mockup — criação do Grupo Assunção e unificação sob a marca Gasfort.]</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="empresas" style="background:#fff;">
+    <div class="container b2b-inner">
+      <div class="b2b-text">
+        <h2>Para Empresas</h2>
+        <p>Abastecimento inteligente para sua frota. Cotação personalizada, faturamento e controle total.</p>
+        <ul class="b2b-list">
+          <li><span class="b2b-check">✓</span> [Benefício mockup para frotas]</li>
+          <li><span class="b2b-check">✓</span> [Benefício mockup para frotas]</li>
+          <li><span class="b2b-check">✓</span> [Benefício mockup para frotas]</li>
+        </ul>
+        <a href="#" class="btn btn-brand">Solicitar cotação</a>
+      </div>
+      <div class="b2b-form">
+        <h3>Solicite uma cotação</h3>
+        <div class="form-group"><label>Nome da empresa</label><input type="text" placeholder="[mockup]"></div>
+        <div class="form-group"><label>CNPJ</label><input type="text" placeholder="[mockup]"></div>
+        <div class="form-group"><label>Cidade/UF</label><input type="text" placeholder="[mockup]"></div>
+        <div class="form-group"><label>Quantidade de veículos</label><select><option>[mockup]</option></select></div>
+        <button class="btn btn-primary" style="width:100%;">Enviar solicitação</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" id="contato">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="color:#fff;">
+            <div class="logo-circle" style="background:var(--brand);"><img src="../gasfort-logo.jpg" alt="Gasfort"></div>
+            Rede Gasfort
+          </div>
+          <p>[Texto mockup — descrição curta da empresa e valores.]</p>
+        </div>
+        <div class="footer-col">
+          <h4>Institucional</h4>
+          <a href="#">Sobre a Gasfort</a>
+          <a href="#">Nossos Postos</a>
+          <a href="#">Serviços</a>
+          <a href="#">História</a>
+        </div>
+        <div class="footer-col">
+          <h4>Serviços</h4>
+          <a href="#">Combustíveis</a>
+          <a href="#">Conveniência</a>
+          <a href="#">Troca de Óleo</a>
+          <a href="#">Lavagem</a>
+        </div>
+        <div class="footer-col">
+          <h4>Fale Conosco</h4>
+          <a href="#">[Telefone mockup]</a>
+          <a href="#">[E-mail mockup]</a>
+          <a href="#">[WhatsApp mockup]</a>
+          <a href="#">Trabalhe Conosco</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Rede Gasfort. Todos os direitos reservados.</span>
+        <span>[Redes sociais mockup]</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="cookie">
+    <p>Utilizamos cookies para melhorar sua experiência. [Texto mockup de LGPD.]</p>
+    <button class="cookie-accept">Aceitar</button>
+    <button class="cookie-reject">Rejeitar</button>
+  </div>
+
+</body>
+</html>

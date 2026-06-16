@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Wireframe Localizador — Rede Gasfort (Mobile)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand: #FFC400;
+      --brand-dark: #F2BA00;
+      --text: #1C1C1E;
+      --muted: #8E8E93;
+      --bg: #F5F5F7;
+      --surface: #FFFFFF;
+      --border: rgba(60,60,67,0.08);
+      --radius: 22px;
+      --shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: Inter, sans-serif; background: var(--bg); color: var(--text); line-height:1.5; padding-bottom:80px; }
+    a { text-decoration:none; color:inherit; }
+    .container { padding:0 16px; }
+    .btn {
+      display:flex; align-items:center; justify-content:center; gap:8px;
+      padding:12px 20px; border-radius:999px; font-weight:700; font-size:14px;
+      border:none; width:100%;
+    }
+    .btn-primary { background: var(--text); color:#fff; }
+    .btn-brand { background: var(--brand); color:var(--text); }
+    .btn-outline { background:transparent; border:2px solid var(--text); color:var(--text); }
+
+    /* HEADER */
+    .header {
+      position:sticky; top:0; z-index:100;
+      background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
+      border-bottom:1px solid var(--border);
+    }
+    .header-inner {
+      display:flex; align-items:center; justify-content:space-between;
+      height:60px;
+    }
+    .logo { display:flex; align-items:center; gap:10px; font-weight:800; font-size:18px; }
+    .logo-circle {
+      width:36px; height:36px; background:var(--brand); border-radius:10px;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .logo-circle img { width:24px; height:24px; object-fit:cover; border-radius:4px; }
+    .menu-btn {
+      width:40px; height:40px; border-radius:50%; border:none;
+      background:var(--brand); font-size:20px; display:flex; align-items:center; justify-content:center;
+    }
+
+    /* PAGE HEADER */
+    .page-header {
+      background: linear-gradient(180deg, #1C1C1E 0%, #2C2C2E 100%);
+      color:#fff; padding:40px 0 32px; text-align:center;
+    }
+    .page-header h1 { font-size:28px; font-weight:800; letter-spacing:-0.5px; margin-bottom:8px; }
+    .page-header p { color:rgba(255,255,255,0.7); font-size:15px; }
+
+    /* SEARCH */
+    .search-bar { padding:16px 0; }
+    .search-input {
+      display:flex; align-items:center; gap:10px;
+      background:var(--surface); border-radius:999px; padding:12px 16px;
+      box-shadow:var(--shadow); margin-bottom:12px;
+    }
+    .search-input input { border:none; background:transparent; flex:1; font-size:15px; font-family:inherit; }
+    .search-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    .form-group select {
+      width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--border);
+      font-family:inherit; font-size:14px; background:#fff;
+    }
+
+    /* VIEW TOGGLE */
+    .view-toggle {
+      display:flex; gap:8px; padding:8px 0 16px;
+    }
+    .view-toggle button {
+      flex:1; padding:10px; border-radius:999px; border:1px solid var(--border);
+      background:#fff; font-weight:600; font-size:13px;
+    }
+    .view-toggle button.active { background:var(--brand); border-color:var(--brand); }
+
+    /* FILTERS */
+    .filter-scroll {
+      display:flex; gap:8px; overflow-x:auto; padding:0 16px 16px;
+    }
+    .filter-scroll::-webkit-scrollbar { display:none; }
+    .chip {
+      flex:0 0 auto; padding:8px 14px; border-radius:999px; border:1px solid var(--border);
+      background:#fff; font-size:13px; font-weight:500; white-space:nowrap;
+    }
+    .chip.active { background:var(--brand); border-color:var(--brand); font-weight:700; }
+
+    /* MAP */
+    .map-area {
+      background:#E5E7EB; border-radius:var(--radius); height:360px; margin:0 16px 16px;
+      display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:14px;
+      position:relative; overflow:hidden;
+    }
+    .map-marker {
+      position:absolute; width:32px; height:32px; background:var(--brand);
+      border-radius:50% 50% 50% 0; transform:rotate(-45deg);
+      display:flex; align-items:center; justify-content:center;
+    }
+    .map-marker::after { content:'G'; transform:rotate(45deg); font-weight:800; font-size:14px; }
+
+    /* STATION CARDS */
+    .results-list { display:flex; flex-direction:column; gap:12px; padding:0 16px; }
+    .station-card {
+      background:var(--surface); border-radius:var(--radius); padding:18px;
+      box-shadow:var(--shadow);
+    }
+    .station-header { display:flex; gap:12px; align-items:center; margin-bottom:12px; }
+    .station-logo {
+      width:44px; height:44px; border-radius:50%; background:#fff;
+      border:1px solid var(--border); display:flex; align-items:center; justify-content:center;
+      font-size:9px; color:var(--muted); flex-shrink:0;
+    }
+    .station-title h3 { font-size:16px; font-weight:700; }
+    .station-title p { font-size:12px; color:var(--muted); }
+    .station-address { font-size:13px; color:var(--muted); display:flex; gap:6px; margin-bottom:12px; }
+    .station-services { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px; }
+    .service-tag {
+      background:rgba(255,196,0,0.12); color:var(--text); padding:4px 10px;
+      border-radius:999px; font-size:11px; font-weight:600;
+    }
+    .station-actions { display:flex; gap:8px; }
+    .station-actions .btn { flex:1; padding:10px; font-size:12px; }
+
+    /* STICKY CTA */
+    .sticky-cta {
+      position:fixed; bottom:0; left:0; right:0;
+      background:#fff; border-top:1px solid var(--border);
+      padding:12px 16px; display:flex; gap:10px; z-index:150;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header-inner">
+      <div class="logo">
+        <div class="logo-circle"><img src="../gasfort-logo.jpg" alt="Gasfort"></div>
+        Rede Gasfort
+      </div>
+      <button class="menu-btn">☰</button>
+    </div>
+  </header>
+
+  <section class="page-header">
+    <div class="container">
+      <h1>Encontre um posto</h1>
+      <p>Busque a unidade Gasfort mais próxima de você.</p>
+    </div>
+  </section>
+
+  <div class="container search-bar">
+    <div class="search-input">
+      <span>🔍</span>
+      <input type="text" placeholder="Cidade, bairro ou endereço">
+      <span>📍</span>
+    </div>
+    <div class="search-row">
+      <div class="form-group"><select><option>Bandeira</option></select></div>
+      <div class="form-group"><select><option>Serviço</option></select></div>
+    </div>
+  </div>
+
+  <div class="view-toggle container">
+    <button class="active">Mapa</button>
+    <button>Lista</button>
+  </div>
+
+  <div class="filter-scroll">
+    <span class="chip active">Todos</span>
+    <span class="chip">Conveniência</span>
+    <span class="chip">Troca de Óleo</span>
+    <span class="chip">Lavagem</span>
+    <span class="chip">24 Horas</span>
+    <span class="chip">Restaurante</span>
+  </div>
+
+  <div class="map-area">
+    [MAPA MOCKUP]
+    <div class="map-marker" style="top:35%; left:45%;"></div>
+    <div class="map-marker" style="top:60%; left:70%;"></div>
+    <div class="map-marker" style="top:75%; left:30%;"></div>
+  </div>
+
+  <div class="results-list">
+    <div class="station-card">
+      <div class="station-header">
+        <div class="station-logo">LOGO</div>
+        <div class="station-title">
+          <h3>Posto Gasfort — POA</h3>
+          <p>Gasfort • 3,2 km</p>
+        </div>
+      </div>
+      <div class="station-address">
+        <span>📍</span>
+        <span>Av. Tramandaí, 42 — Ipanema, Porto Alegre/RS</span>
+      </div>
+      <div class="station-services">
+        <span class="service-tag">Conveniência</span>
+        <span class="service-tag">Troca de Óleo</span>
+        <span class="service-tag">Lavagem</span>
+      </div>
+      <div class="station-actions">
+        <button class="btn btn-brand">Rota</button>
+        <button class="btn btn-outline">Detalhes</button>
+      </div>
+    </div>
+
+    <div class="station-card">
+      <div class="station-header">
+        <div class="station-logo">LOGO</div>
+        <div class="station-title">
+          <h3>Posto Shell — Gramado</h3>
+          <p>Shell • 8,5 km</p>
+        </div>
+      </div>
+      <div class="station-address">
+        <span>📍</span>
+        <span>Av. das Hortênsias, 1038 — Planalto, Gramado/RS</span>
+      </div>
+      <div class="station-services">
+        <span class="service-tag">Shell Select</span>
+      </div>
+      <div class="station-actions">
+        <button class="btn btn-brand">Rota</button>
+        <button class="btn btn-outline">Detalhes</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="sticky-cta">
+    <button class="btn btn-brand" style="flex:2;">Traçar rota</button>
+    <button class="btn btn-outline" style="flex:1;">Filtros</button>
+  </div>
+
+</body>
+</html>
