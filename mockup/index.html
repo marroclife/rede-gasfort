@@ -273,25 +273,7 @@
     .app-visual {
       display: flex; align-items: center; justify-content: center;
     }
-    .phone-mockup {
-      width: 280px; height: 560px; background: var(--dark); border-radius: 40px;
-      border: 8px solid rgba(0,0,0,0.15); box-shadow: var(--shadow-lg);
-      position: relative; overflow: hidden;
-      display: flex; flex-direction: column;
-    }
-    .phone-notch { width: 120px; height: 28px; background: #000; border-radius: 0 0 16px 16px; margin: 0 auto; }
-    .phone-screen { flex: 1; background: linear-gradient(180deg, #1c1c1e 0%, #2c2c2e 100%); padding: 24px; display: flex; flex-direction: column; }
-    .phone-header { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; }
-    .phone-avatar { width: 36px; height: 36px; background: var(--brand); border-radius: 10px; }
-    .phone-balance {
-      background: var(--brand); border-radius: 20px; padding: 22px; text-align: center; margin-bottom: 24px;
-    }
-    .phone-balance .label { font-size: 12px; opacity: .75; font-weight: 600; }
-    .phone-balance .value { font-size: 32px; font-weight: 800; }
-    .phone-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .phone-action { background: rgba(255,255,255,0.08); border-radius: 14px; padding: 16px; text-align: center; color: #fff; font-size: 12px; font-weight: 600; }
-    .phone-action .emoji { font-size: 22px; display: block; margin-bottom: 6px; }
-
+    .app-screenshot { width: min(100%, 420px); height: auto; border-radius: 20px; box-shadow: var(--shadow-lg); }
     /* HISTÓRIA */
     .timeline-wrap { max-width: 900px; margin: 0 auto; position: relative; }
     .timeline-wrap::before {
@@ -600,19 +582,7 @@
         </div>
       </div>
       <div class="app-visual reveal">
-        <div class="phone-mockup">
-          <div class="phone-notch"></div>
-          <div class="phone-screen">
-            <div class="phone-header"><div class="phone-avatar"></div><span style="color:#fff; font-weight:700;">Gasfort</span></div>
-            <div class="phone-balance"><div class="label">SEUS PONTOS</div><div class="value">2.450</div></div>
-            <div class="phone-actions">
-              <div class="phone-action"><span class="emoji">⛽</span>Abastecer</div>
-              <div class="phone-action"><span class="emoji">🎁</span>Resgatar</div>
-              <div class="phone-action"><span class="emoji">📍</span>Postos</div>
-              <div class="phone-action"><span class="emoji">🏷️</span>Ofertas</div>
-            </div>
-          </div>
-        </div>
+        <img class="app-screenshot" src="../assets/app-gasfort.webp" alt="Captura de tela do aplicativo Rede Gasfort">
       </div>
     </div>
   </section>
