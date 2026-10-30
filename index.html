@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rede Gasfort — Filiais no Rio Grande do Sul</title>
+  <meta name="description" content="Encontre as 27 filiais da Rede Gasfort no Rio Grande do Sul. Consulte cidade, bandeira, endereço informado e abra a rota oficial no Google Maps.">
+  <meta name="theme-color" content="#FFC400">
+  <meta property="og:title" content="Rede Gasfort — Encontre uma filial">
+  <meta property="og:description" content="Consulte filiais da Rede Gasfort e acesse os links oficiais de rota.">
+  <meta property="og:type" content="website">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand: #FFC400;
+      --brand-600: #F2BA00;
+      --brand-100: #FFF8D6;
+      --dark: #0D0D0F;
+      --dark-900: #1C1C1E;
+      --dark-800: #2C2C2E;
+      --gray-100: #F5F5F7;
+      --gray-200: #E4E4E7;
+      --gray-300: #D4D4D8;
+      --gray-500: #8E8E93;
+      --gray-600: #636366;
+      --white: #FFFFFF;
+      --radius-sm: 14px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+      --radius-xl: 36px;
+      --shadow-sm: 0 4px 12px rgba(0,0,0,0.04);
+      --shadow-md: 0 8px 28px rgba(0,0,0,0.08);
+      --shadow-lg: 0 20px 50px rgba(0,0,0,0.12);
+      --ease: cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .skip-link {position:absolute;left:12px;top:-60px;z-index:3000;background:#fff;color:#111;padding:12px;border-radius:8px}
+    .skip-link:focus {top:12px}
+    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0 }
+    :focus-visible { outline:3px solid #1c1c1e;outline-offset:3px }
+    .locator-note { padding:32px;background:#f5f5f7;color:#444;align-content:center;min-height:300px }
+    .route-link { margin-top:12px;font-size:13px;padding:10px 14px }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--white);
+      color: var(--dark-900);
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', Inter, sans-serif; line-height: 1.15; letter-spacing: -0.02em; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    .container { width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 14px 28px; border-radius: 999px; font-weight: 700; font-size: 15px;
+      border: none; cursor: pointer; transition: all .25s var(--ease); white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: scale(0.97); }
+    .btn-brand { background: var(--brand); color: var(--dark); box-shadow: 0 8px 20px rgba(255,196,0,0.28); }
+    .btn-brand:hover { background: var(--brand-600); }
+    .btn-dark { background: var(--dark); color: #fff; }
+    .btn-dark:hover { background: #000; }
+    .btn-outline { background: transparent; border: 2px solid currentColor; }
+    .btn-white { background: #fff; color: var(--dark); }
+
+    /* HEADER */
+    .header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(255,255,255,0.35); backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      border-bottom: 1px solid rgba(255,255,255,0.18);
+      transition: all .3s var(--ease);
+    }
+    .header.scrolled { background: rgba(255,255,255,0.72); box-shadow: var(--shadow-sm); }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+    .logo { display: flex; align-items: center; gap: 12px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 20px; color: var(--dark); }
+    .logo img { width: 44px; height: 44px; border-radius: 12px; object-fit: cover; }
+    .nav { display: flex; align-items: center; gap: 32px; }
+    .nav a { font-weight: 600; font-size: 14px; color: var(--dark-800); position: relative; }
+    .nav a::after {
+      content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 2px;
+      background: var(--brand); transition: width .25s var(--ease);
+    }
+    .nav a:hover::after { width: 100%; }
+    .header-ctas { display: flex; align-items: center; gap: 12px; }
+    .header-ctas .btn-outline { border-color: rgba(255,255,255,0.55); color: var(--dark-900); background: rgba(255,255,255,0.25); }
+    .header-ctas .btn-outline:hover { background: rgba(255,255,255,0.4); border-color: rgba(255,255,255,0.8); }
+    .menu-toggle { display: none; width: 44px; height: 44px; border-radius: 12px; background: var(--brand); border: none; font-size: 20px; }
+
+    /* HERO */
+    .hero {
+      position: relative; min-height: 100vh; display: flex; align-items: center;
+      background: var(--dark); color: #fff; overflow: hidden; padding-top: 76px;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        linear-gradient(135deg, rgba(13,13,15,0.82) 0%, rgba(13,13,15,0.55) 50%, rgba(13,13,15,0.75) 100%),
+        url('assets/hero-bg.png') center/cover no-repeat;
+    }
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,196,0,0.22) 0%, transparent 45%),
+        radial-gradient(circle at 80% 70%, rgba(255,196,0,0.12) 0%, transparent 40%);
+      pointer-events: none;
+    }
+    .hero-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1.05fr 1fr; gap: 60px; align-items: center; padding: 90px 0 110px; }
+    .hero-content { max-width: 600px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,196,0,0.12); border: 1px solid rgba(255,196,0,0.25);
+      color: var(--brand); padding: 8px 16px; border-radius: 999px;
+      font-weight: 700; font-size: 13px; margin-bottom: 28px;
+    }
+    .hero h1 { font-size: clamp(42px, 5.2vw, 72px); font-weight: 800; margin-bottom: 24px; }
+    .hero h1 em { color: var(--brand); font-style: normal; }
+    .hero p { font-size: 19px; color: rgba(255,255,255,0.72); margin-bottom: 36px; max-width: 520px; }
+    .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-ctas .btn-outline { color: #fff; border-color: rgba(255,255,255,0.35); }
+    .hero-ctas .btn-outline:hover { background: rgba(255,255,255,0.08); }
+    .hero-visual {
+      position: relative; display: flex; align-items: center; justify-content: center;
+    }
+    .hero-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-xl); padding: 32px; backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-lg); width: 100%; max-width: 520px;
+    }
+    .hero-station {
+      height: 240px; border-radius: var(--radius-lg); margin-bottom: 24px;
+      background:
+        linear-gradient(135deg, rgba(255,196,0,0.2) 0%, rgba(255,196,0,0) 50%),
+        linear-gradient(180deg, #2C2C2E 0%, #1C1C1E 100%);
+      display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;
+    }
+    .hero-station::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.03) 40px);
+    }
+    .pump {
+      width: 70px; height: 140px; background: linear-gradient(180deg, #3a3a3c 0%, #2c2c2e 100%);
+      border-radius: 12px; margin: 0 8px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .pump::before { content: ''; position: absolute; top: 16px; left: 50%; transform: translateX(-50%); width: 44px; height: 44px; background: var(--brand); border-radius: 50%; }
+    .pump::after { content: ''; position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); width: 30px; height: 50px; background: #1c1c1e; border-radius: 6px; }
+    .hero-card-row { display: flex; gap: 16px; }
+    .hero-mini {
+      flex: 1; background: rgba(255,255,255,0.05); border-radius: var(--radius-md);
+      padding: 18px; text-align: center;
+    }
+    .hero-mini .num { font-size: 26px; font-weight: 800; color: var(--brand); }
+    .hero-mini .label { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 4px; }
+
+    /* STATS */
+    .stats {
+      position: relative; z-index: 3; margin-top: -70px;
+    }
+    .stats-inner {
+      background: var(--white); border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg); padding: 48px;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
+    }
+    .stat { text-align: center; }
+    .stat-number { font-size: 48px; font-weight: 800; color: var(--dark); letter-spacing: -2px; }
+    .stat-number span { color: var(--brand-600); }
+    .stat-label { font-size: 15px; color: var(--gray-500); font-weight: 500; margin-top: 6px; }
+
+    /* SECTION BASE */
+    .section { padding: 100px 0; }
+    .section-head { text-align: center; max-width: 700px; margin: 0 auto 56px; }
+    .section-head h2 { font-size: clamp(32px, 3.5vw, 44px); font-weight: 800; margin-bottom: 14px; }
+    .section-head p { font-size: 18px; color: var(--gray-500); }
+    .eyebrow {
+      display: inline-block; background: var(--brand-100); color: var(--dark-800);
+      padding: 6px 14px; border-radius: 999px; font-weight: 700; font-size: 12px;
+      text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 16px;
+    }
+
+    /* POSTOS */
+    .postos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .posto-card {
+      background: var(--white); border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: var(--shadow-md); transition: transform .3s var(--ease);
+      border: 1px solid var(--gray-200);
+    }
+    .posto-card:hover { transform: translateY(-6px); }
+    .posto-img {
+      height: 200px; position: relative;
+      background: linear-gradient(135deg, #E4E4E7 0%, #D4D4D8 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .posto-img::after { content: '📍'; font-size: 48px; opacity: .35; }
+    .posto-content { padding: 24px; }
+    .posto-content h3 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+    .posto-content p { font-size: 14px; color: var(--gray-500); margin-bottom: 16px; }
+    .posto-meta { display: flex; gap: 8px; flex-wrap: wrap; }
+    .posto-tag { background: var(--brand-100); padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+
+    /* LOCALIZADOR */
+    .locator { background: var(--gray-100); }
+    .locator-box {
+      background: var(--white); border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg); overflow: hidden;
+      display: grid; grid-template-columns: 420px 1fr; min-height: 640px; align-items: stretch;
+    }
+    .locator-sidebar { padding: 32px; border-right: 1px solid var(--gray-200); display: flex; flex-direction: column; }
+    .locator-search {
+      display: flex; gap: 10px; margin-bottom: 20px;
+    }
+    .locator-search input {
+      flex: 1; padding: 14px 18px; border-radius: 999px; border: 1px solid var(--gray-300);
+      font-size: 15px; font-family: inherit;
+    }
+    .locator-search button {
+      width: 46px; height: 46px; border-radius: 50%; border: none;
+      background: var(--brand); font-size: 18px; cursor: pointer;
+    }
+    .locator-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .filter-chip {
+      padding: 8px 14px; border-radius: 999px; border: 1px solid var(--gray-300);
+      background: #fff; font-size: 13px; font-weight: 600; cursor: pointer; transition: all .2s;
+    }
+    .filter-chip.active, .filter-chip:hover { background: var(--brand); border-color: var(--brand); }
+    .locator-count { font-size: 13px; color: var(--gray-500); margin-bottom: 14px; }
+    .locator-results { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 14px; padding-right: 8px; max-height: 420px; }
+    .result-card {
+      background: var(--gray-100); border-radius: var(--radius-md); padding: 18px;
+      cursor: pointer; transition: all .2s; border: 2px solid transparent;
+    }
+    .result-card:hover, .result-card.active { background: #fff; border-color: var(--brand); box-shadow: var(--shadow-sm); }
+    .result-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .result-card p { font-size: 13px; color: var(--gray-500); margin-bottom: 10px; }
+    .result-services { display: flex; flex-wrap: wrap; gap: 6px; }
+    .result-services span { background: rgba(255,196,0,0.15); padding: 3px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; }
+    #map { height: 100%; min-height: 400px; background: #E5E7EB; }
+    .locator-loading { padding: 40px; text-align: center; color: var(--gray-500); }
+
+    @media(max-width:800px){.locator-box{grid-template-columns:1fr}.locator-sidebar{border-right:0}.locator-results{max-height:none}.locator-note{min-height:auto;padding:22px}.form-row{grid-template-columns:1fr}}
+    /* SERVIÇOS */
+    .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .service-card {
+      background: var(--white); border-radius: var(--radius-lg); padding: 32px 24px;
+      box-shadow: var(--shadow-sm); border: 1px solid var(--gray-200);
+      transition: all .25s var(--ease); position: relative; overflow: hidden;
+    }
+    .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--brand); }
+    .service-card:hover .service-icon { background: var(--brand); transform: scale(1.05); }
+    .service-card .service-extra {
+      max-height: 0; opacity: 0; overflow: hidden;
+      transition: all .35s var(--ease); margin-top: 0;
+      font-size: 13px; color: var(--gray-600);
+    }
+    .service-card:hover .service-extra { max-height: 120px; opacity: 1; margin-top: 14px; }
+    .service-icon {
+      width: 60px; height: 60px; border-radius: 16px;
+      background: var(--brand-100); display: flex; align-items: center; justify-content: center;
+      font-size: 26px; margin-bottom: 20px; transition: all .25s var(--ease);
+    }
+    .service-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+    .service-card p { font-size: 14px; color: var(--gray-500); }
+
+    /* APP */
+    .app-section { background: var(--brand); color: var(--dark); position: relative; overflow: hidden; }
+    .app-bg { position: absolute; inset: 0; opacity: .12; background-image: radial-gradient(circle at 30% 50%, #000 0%, transparent 50%); }
+    .app-grid { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .app-content h2 { font-size: clamp(34px, 4vw, 48px); font-weight: 800; margin-bottom: 18px; }
+    .app-content p { font-size: 18px; opacity: .8; margin-bottom: 32px; }
+    .app-benefits { display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px; }
+    .app-benefit { display: flex; align-items: center; gap: 14px; }
+    .app-benefit .icon { width: 40px; height: 40px; background: rgba(0,0,0,0.08); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+    .app-benefit span { font-weight: 700; font-size: 16px; }
+    .app-stores { display: flex; gap: 14px; flex-wrap: wrap; }
+    .store-btn {
+      display: flex; align-items: center; gap: 10px; background: var(--dark); color: #fff;
+      padding: 12px 20px; border-radius: 12px; font-weight: 600; font-size: 14px;
+      transition: transform .2s;
+    }
+    .store-btn:hover { transform: translateY(-2px); }
+    .app-visual {
+      display: flex; align-items: center; justify-content: center;
+    }
+    .phone-mockup {
+      width: 280px; height: 560px; background: var(--dark); border-radius: 40px;
+      border: 8px solid rgba(0,0,0,0.15); box-shadow: var(--shadow-lg);
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    .phone-notch { width: 120px; height: 28px; background: #000; border-radius: 0 0 16px 16px; margin: 0 auto; }
+    .phone-screen { flex: 1; background: linear-gradient(180deg, #1c1c1e 0%, #2c2c2e 100%); padding: 24px; display: flex; flex-direction: column; }
+    .phone-header { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; }
+    .phone-avatar { width: 36px; height: 36px; background: var(--brand); border-radius: 10px; }
+    .phone-balance {
+      background: var(--brand); border-radius: 20px; padding: 22px; text-align: center; margin-bottom: 24px;
+    }
+    .phone-balance .label { font-size: 12px; opacity: .75; font-weight: 600; }
+    .phone-balance .value { font-size: 32px; font-weight: 800; }
+    .phone-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .phone-action { background: rgba(255,255,255,0.08); border-radius: 14px; padding: 16px; text-align: center; color: #fff; font-size: 12px; font-weight: 600; }
+    .phone-action .emoji { font-size: 22px; display: block; margin-bottom: 6px; }
+
+    /* HISTÓRIA */
+    .timeline-wrap { max-width: 900px; margin: 0 auto; position: relative; }
+    .timeline-wrap::before {
+      content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px;
+      background: linear-gradient(180deg, var(--brand) 0%, var(--gray-300) 100%); transform: translateX(-50%);
+    }
+    .timeline-item { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 64px; position: relative; }
+    .timeline-item:nth-child(even) .t-content { grid-column: 2; }
+    .timeline-item:nth-child(even) .t-year { grid-column: 1; text-align: right; }
+    .t-year { font-size: 56px; font-weight: 800; color: var(--brand); letter-spacing: -2px; }
+    .t-content { background: var(--white); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow-md); border: 1px solid var(--gray-200); }
+    .t-content h3 { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
+    .t-content p { color: var(--gray-500); }
+    .t-dot {
+      position: absolute; left: 50%; top: 10px; transform: translateX(-50%);
+      width: 18px; height: 18px; background: var(--brand); border-radius: 50%; border: 4px solid #fff; box-shadow: var(--shadow-sm);
+    }
+
+    /* EMPRESAS */
+    .empresas { background: var(--dark); color: #fff; }
+    .empresas-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .empresas-content h2 { font-size: clamp(32px, 3.5vw, 44px); font-weight: 800; margin-bottom: 18px; }
+    .empresas-content p { font-size: 18px; color: rgba(255,255,255,0.65); margin-bottom: 32px; }
+    .empresas-list { display: flex; flex-direction: column; gap: 18px; margin-bottom: 36px; }
+    .empresas-item { display: flex; align-items: center; gap: 14px; }
+    .empresas-item .check { width: 28px; height: 28px; background: var(--brand); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; color: var(--dark); flex-shrink: 0; }
+    .empresas-form {
+      background: var(--white); border-radius: var(--radius-xl); padding: 40px; color: var(--dark);
+      box-shadow: var(--shadow-lg);
+    }
+    .empresas-form h3 { font-size: 24px; font-weight: 700; margin-bottom: 24px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 14px 16px; border-radius: 12px; border: 1px solid var(--gray-300);
+      font-family: inherit; font-size: 15px; transition: border-color .2s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--brand); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    /* FOOTER */
+    .footer { background: var(--dark-900); color: #fff; padding: 80px 0 32px; }
+    .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 64px; }
+    .footer-brand p { color: rgba(255,255,255,0.55); font-size: 14px; margin-top: 18px; line-height: 1.7; max-width: 300px; }
+    .footer-col h4 { font-size: 15px; font-weight: 700; margin-bottom: 22px; }
+    .footer-col a { display: block; color: rgba(255,255,255,0.6); font-size: 14px; margin-bottom: 12px; transition: color .2s; }
+    .footer-col a:hover { color: var(--brand); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1); padding-top: 28px;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 13px; color: rgba(255,255,255,0.45);
+    }
+    .footer-socials { display: flex; gap: 14px; }
+    .footer-socials a { width: 38px; height: 38px; background: rgba(255,255,255,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; transition: background .2s; }
+    .footer-socials a:hover { background: var(--brand); color: var(--dark); }
+
+    /* COOKIE */
+    .cookie {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 2000;
+      background: #fff; border-top: 1px solid var(--gray-200);
+      padding: 16px 24px; box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+      display: flex; justify-content: center; align-items: center; gap: 16px;
+    }
+    .cookie p { font-size: 14px; color: var(--dark-800); }
+    .cookie button { padding: 10px 20px; border-radius: 999px; font-weight: 700; font-size: 13px; border: none; cursor: pointer; }
+    .cookie .accept { background: var(--brand); color: var(--dark); }
+    .cookie .reject { background: transparent; color: var(--gray-500); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .nav, .header-ctas .btn-outline { display: none; }
+      .menu-toggle { display: flex; align-items: center; justify-content: center; }
+      .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+      .hero-visual { order: -1; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); padding: 32px; }
+      .postos-grid, .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .locator-box { grid-template-columns: 1fr; }
+      .locator-sidebar { border-right: none; border-bottom: 1px solid var(--gray-200); }
+      .locator-results { max-height: 360px; }
+      .app-grid, .empresas-grid { grid-template-columns: 1fr; }
+      .app-visual { order: -1; }
+      .timeline-wrap::before { left: 20px; }
+      .timeline-item { grid-template-columns: 1fr; padding-left: 52px; }
+      .timeline-item:nth-child(even) .t-content, .timeline-item:nth-child(even) .t-year { grid-column: 1; text-align: left; }
+      .t-dot { left: 20px; transform: translateX(-50%); }
+      .t-year { font-size: 40px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+    @media (max-width: 640px) {
+      .container { padding: 0 18px; }
+      .hero h1 { font-size: 36px; }
+      .hero p { font-size: 16px; }
+      .hero-ctas { flex-direction: column; }
+      .stats-inner { grid-template-columns: 1fr 1fr; gap: 24px; padding: 28px; }
+      .stat-number { font-size: 32px; }
+      .postos-grid, .services-grid { grid-template-columns: 1fr; }
+      .service-card, .posto-card { padding: 24px; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+      .cookie { flex-direction: column; text-align: center; gap: 10px; }
+      .locator-results { max-height: 320px; }
+    }
+
+    /* SCROLL REVEAL */
+    .reveal { opacity: 0; transform: translateY(24px); transition: all .8s var(--ease); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="#main-content" class="logo">
+        <img src="assets/gasfort-logo.jpg" alt="Rede Gasfort">
+        Rede Gasfort
+      </a>
+      <nav class="nav">
+        <a href="#postos">Postos</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#app">App</a>
+        <a href="#historia">História</a>
+        <a href="#empresas">Empresas</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <div class="header-ctas">
+        <a href="#locator" class="btn btn-brand">Encontrar Posto</a>
+        <a href="#app" class="btn btn-outline header-btn-app">Baixar App</a>
+        <button class="menu-toggle" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+  <section class="hero" id="home">
+    <div class="hero-bg" role="img" aria-label="Posto Rede Gasfort ao entardecer"></div>
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">✅ Combustível com garantia de procedência</div>
+        <h1>A energia que <em>move o RS</em></h1>
+        <p>27 filiais em 16 cidades, com a tradição e confiança que só a Rede Gasfort tem.</p>
+        <div class="hero-ctas">
+          <a href="#locator" class="btn btn-brand">Encontrar posto mais próximo</a>
+          <a href="#app" class="btn btn-outline">Baixar o App Gasfort</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="hero-station">
+            <div class="pump"></div>
+            <div class="pump"></div>
+            <div class="pump"></div>
+          </div>
+          <div class="hero-card-row">
+            <div class="hero-mini"><div class="num">27</div><div class="label">Filiais</div></div>
+            <div class="hero-mini"><div class="num">16</div><div class="label">Cidades</div></div>
+            <div class="hero-mini"><div class="num">5</div><div class="label">Bandeiras</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="container">
+      <div class="stats-inner reveal">
+        <div class="stat"><div class="stat-number">30<span>+</span></div><div class="stat-label">anos de tradição</div></div>
+        <div class="stat"><div class="stat-number">27</div><div class="stat-label">filiais na planilha oficial</div></div>
+        <div class="stat"><div class="stat-number">16</div><div class="stat-label">cidades atendidas</div></div>
+        <div class="stat"><div class="stat-number">5</div><div class="stat-label">bandeiras parceiras</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="postos">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Nossa Rede</span>
+        <h2>Postos espalhados por toda a região</h2>
+        <p>Consulte as filiais cadastradas e seus links de rota oficiais.</p>
+      </div>
+      <div class="section-head reveal" style="margin-top:28px"><p>A listagem de filiais abaixo usa os dados e links de rota da planilha oficial. Consulte cidade, bandeira e endereço informado.</p></div>
+      <div style="text-align:center; margin-top: 48px;">
+        <a href="#locator" class="btn btn-dark">Ver todos os postos no mapa</a>
+      </div>
+    </div>
+  </section>
+
+    <!-- SEÇÃO LOGOS PARCEIROS -->
+  <section class="section partners" style="padding-top: 40px; padding-bottom: 40px;">
+    <div class="container">
+      <p class="partners-label" style="text-align:center; font-size:13px; color:var(--gray-500); font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-bottom:28px;">Bandeiras parceiras da Rede Gasfort</p>
+      <div class="partners-logos" style="display:flex; justify-content:center; align-items:center; gap:48px; flex-wrap:wrap;">
+        <img src="assets/gasfort-logo.jpg" alt="Gasfort" style="height:54px; width:auto; object-fit:contain; filter:grayscale(100%) opacity(0.7); transition:all .25s;" onmouseover="this.style.filter='none'" onmouseout="this.style.filter='grayscale(100%) opacity(0.7)'">
+        <img src="assets/logo-ipiranga.png" alt="Ipiranga" style="height:44px; width:auto; object-fit:contain; filter:grayscale(100%) opacity(0.7); transition:all .25s;" onmouseover="this.style.filter='none'" onmouseout="this.style.filter='grayscale(100%) opacity(0.7)'">
+        <img src="assets/logo-charrua.png" alt="Charrua" style="height:44px; width:auto; object-fit:contain; filter:grayscale(100%) opacity(0.7); transition:all .25s;" onmouseover="this.style.filter='none'" onmouseout="this.style.filter='grayscale(100%) opacity(0.7)'">
+        <img src="assets/logo-sta-lucia.jpg" alt="Santa Lúcia" style="height:44px; width:auto; object-fit:contain; filter:grayscale(100%) opacity(0.7); transition:all .25s;" onmouseover="this.style.filter='none'" onmouseout="this.style.filter='grayscale(100%) opacity(0.7)'">
+        <span style="display:flex; align-items:center; gap:8px; font-family:'Plus Jakarta Sans', sans-serif; font-weight:800; font-size:18px; color:var(--dark-800); filter:grayscale(100%) opacity(0.7); transition:all .25s;" onmouseover="this.style.filter='none'" onmouseout="this.style.filter='grayscale(100%) opacity(0.7)'">
+          <span style="display:inline-block; width:32px; height:32px; border-radius:50%; background:#FBCE07; display:flex; align-items:center; justify-content:center; font-size:14px; color:#000;">S</span> Shell
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section locator" id="locator">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Localizador</span>
+        <h2>Encontre o posto mais próximo</h2>
+        <p>Consulte as 27 filiais cadastradas na planilha oficial enviada pelo cliente.</p>
+      </div>
+      <div class="locator-box reveal">
+        <div class="locator-sidebar">
+          <div class="locator-search">
+            <label class="sr-only" for="searchInput">Buscar filial por nome, cidade ou endereço</label>
+            <input type="search" id="searchInput" placeholder="Nome, cidade ou endereço">
+            <button id="searchBtn" type="button" aria-label="Buscar filiais">🔍</button>
+          </div>
+          <div class="locator-filters">
+            <button type="button" class="filter-chip active" data-filter="all" aria-pressed="true">Todas bandeiras</button>
+            <button type="button" class="filter-chip" data-filter="GASFORT" aria-pressed="false">Gasfort</button>
+            <button type="button" class="filter-chip" data-filter="IPIRANGA" aria-pressed="false">Ipiranga</button>
+            <button type="button" class="filter-chip" data-filter="SHELL" aria-pressed="false">Shell</button>
+            <button type="button" class="filter-chip" data-filter="CHARRUA" aria-pressed="false">Charrua</button>
+            <button type="button" class="filter-chip" data-filter="SANTA LUCIA" aria-pressed="false">Santa Lúcia</button>
+          </div>
+          <div class="locator-count" id="resultCount" aria-live="polite">Carregando filiais...</div>
+          <div class="locator-results" id="resultsList">
+            <div class="locator-loading">Carregando filiais...</div>
+          </div>
+        </div>
+        <div class="locator-note" role="note">As coordenadas não foram fornecidas. Use “Abrir rota” para ver a localização validada pelo link da planilha no Google Maps.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="servicos">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Serviços</span>
+        <h2>Tudo o que você precisa em uma parada</h2>
+        <p>Combustíveis de qualidade, conveniência, cuidados com o carro e muito mais.</p>
+      </div>
+      <div class="services-grid reveal">
+        <div class="service-card"><div class="service-icon">⛽</div><h3>Combustíveis</h3><p>Gasolina, etanol, diesel e aditivados das principais bandeiras do mercado.</p><div class="service-extra">Abastecimento com qualidade certificada e procedência garantida em todas as unidades.</div></div>
+        <div class="service-card"><div class="service-icon">🛒</div><h3>Loja de Conveniência</h3><p>Produtos essenciais, bebidas, snacks e itens para a sua viagem.</p><div class="service-extra">am/pm, Shell Select e conveniências próprias com ofertas semanais.</div></div>
+        <div class="service-card"><div class="service-icon">🛢️</div><h3>Troca de Óleo</h3><p>Troca rápida e segura com lubrificantes de qualidade para seu veículo.</p><div class="service-extra">Troca de óleo, filtros e revisão básica com agilidade para você seguir viagem.</div></div>
+        <div class="service-card"><div class="service-icon">🚿</div><h3>Lavagem</h3><p>Lava-rápido e lavanderia para deixar seu carro limpo na viagem.</p><div class="service-extra">Lavagem externa, limpeza interna e higienização em unidades selecionadas.</div></div>
+        <div class="service-card"><div class="service-icon">🍽️</div><h3>Restaurante</h3><p>Lanchonete e restaurante em unidades selecionadas para sua parada completa.</p><div class="service-extra">Cafeteria, lanches e refeições em postos com estrutura de restaurante.</div></div>
+        <div class="service-card"><div class="service-icon">🌙</div><h3>24 Horas</h3><p>Unidades abertas ininterruptamente para você abastecer a qualquer hora.</p><div class="service-extra">Atendimento noturno e plantão 24h nas principais rotas do RS.</div></div>
+        <div class="service-card"><div class="service-icon">🎁</div><h3>Fidelidade</h3><p>No App Gasfort você acumula pontos e troca por produtos e descontos.</p><div class="service-extra">Cadastre-se gratuitamente, acumule pontos e resgate benefícios exclusivos.</div></div>
+        <div class="service-card"><div class="service-icon">💼</div><h3>Frotas</h3><p>Cotação personalizada e faturamento para empresas e frotas.</p><div class="service-extra">Contratos corporativos, faturamento e gestão de abastecimento para frotas.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section app-section" id="app">
+    <div class="app-bg"></div>
+    <div class="container app-grid">
+      <div class="app-content reveal">
+        <span class="eyebrow">App Gasfort</span>
+        <h2>Descontos, cashback e pontos que viram produtos</h2>
+        <p>Baixe o app e tenha benefícios exclusivos em todos os postos da rede Gasfort.</p>
+        <div class="app-benefits">
+          <div class="app-benefit"><div class="icon">🏷️</div><span>Descontos em combustível</span></div>
+          <div class="app-benefit"><div class="icon">💰</div><span>Cashback em todas as compras</span></div>
+          <div class="app-benefit"><div class="icon">🎁</div><span>Troca de pontos por produtos</span></div>
+        </div>
+        <div class="app-stores">
+          <a href="https://apps.apple.com/br/app/rede-gasfort/id6498787617" target="_blank" rel="noopener noreferrer" class="store-btn">🍎 App Store</a>
+          <a href="https://play.google.com/store/apps/details?id=com.kodefy.gasfort" target="_blank" rel="noopener noreferrer" class="store-btn">▶️ Google Play</a>
+        </div>
+      </div>
+      <div class="app-visual reveal">
+        <div class="phone-mockup">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="phone-header"><div class="phone-avatar"></div><span style="color:#fff; font-weight:700;">Gasfort</span></div>
+            <div class="phone-balance"><div class="label">SEUS PONTOS</div><div class="value">2.450</div></div>
+            <div class="phone-actions">
+              <div class="phone-action"><span class="emoji">⛽</span>Abastecer</div>
+              <div class="phone-action"><span class="emoji">🎁</span>Resgatar</div>
+              <div class="phone-action"><span class="emoji">📍</span>Postos</div>
+              <div class="phone-action"><span class="emoji">🏷️</span>Ofertas</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="historia">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Nossa História</span>
+        <h2>Três décadas de tradição e evolução</h2>
+        <p>Da Rede de Postos Assunção à Rede Gasfort: uma história construída com confiança.</p>
+      </div>
+      <div class="timeline-wrap reveal">
+        <div class="timeline-item">
+          <div class="t-year">1995</div>
+          <div class="t-content"><h3>O começo</h3><p>A Rede de Postos Assunção nasce em Igrejinha/RS como um Posto Esso, dando início a uma trajetia de mais de 30 anos no segmento de combustíveis.</p></div>
+          <div class="t-dot"></div>
+        </div>
+        <div class="timeline-item">
+          <div class="t-year">2008</div>
+          <div class="t-content"><h3>Crescimento e adaptação</h3><p>Aquisições estratégicas, novas bandeiras e expansão por cidades do Rio Grande do Sul, sempre acompanhando as mudanças do mercado.</p></div>
+          <div class="t-dot"></div>
+        </div>
+        <div class="timeline-item">
+          <div class="t-year">2024</div>
+          <div class="t-content"><h3>A nova marca Gasfort</h3><p>Com a criação do Grupo Assunção, os postos da rede assumem a marca Gasfort, padronizando operações e fortalecendo a presença em 16 cidades.</p></div>
+          <div class="t-dot"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section empresas" id="empresas">
+    <div class="container empresas-grid">
+      <div class="empresas-content reveal">
+        <span class="eyebrow">Para Empresas</span>
+        <h2>Abastecimento inteligente para sua frota</h2>
+        <p>Cotação personalizada, controle de consumo e faturamento sob medida para empresas de todos os portes.</p>
+        <div class="empresas-list">
+          <div class="empresas-item"><div class="check">✓</div><span>Preços competitivos para frotas</span></div>
+          <div class="empresas-item"><div class="check">✓</div><span>Faturamento e relatórios mensais</span></div>
+          <div class="empresas-item"><div class="check">✓</div><span>Consulte as filiais cadastradas na lista oficial</span></div>
+          <div class="empresas-item"><div class="check">✓</div><span>Atendimento dedicado B2B</span></div>
+        </div>
+      </div>
+      <div class="empresas-form reveal">
+        <h3>Solicite uma cotação</h3>
+        <p>Para solicitar uma cotação corporativa, acesse o formulário oficial da Rede Gasfort.</p>
+        <a class="btn btn-brand" href="https://docs.google.com/forms/d/e/1FAIpQLSckzHBj9Towra7nJ5vVZXztC6w2A-iA3iUQxQ7_vkmcWrR5Xw/viewform" target="_blank" rel="noopener noreferrer">Acessar formulário de cotação</a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+  <footer class="footer" id="contato">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#main-content" class="logo" style="color:#fff;"><img src="assets/gasfort-logo.jpg" alt="Rede Gasfort"> Rede Gasfort</a>
+          <p>Consulte as filiais e informações institucionais disponíveis nos canais oficiais da Rede Gasfort.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Institucional</h4>
+          <a href="#historia">Sobre a Gasfort</a>
+          <a href="#historia">Nossa História</a>
+          <a href="#postos">Nossos Postos</a>
+          <a href="#servicos">Serviços</a>
+        </div>
+        <div class="footer-col">
+          <h4>Serviços</h4>
+          <a href="#servicos">Combustíveis</a>
+          <a href="#servicos">Conveniência</a>
+          <a href="#servicos">Troca de Óleo</a>
+          <a href="#app">App Gasfort</a>
+        </div>
+        <div class="footer-col">
+          <h4>Fale Conosco</h4>
+          <a href="https://forms.gle/9o3a4ALs9uR8JG1w6" target="_blank" rel="noopener noreferrer">Trabalhe Conosco</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Rede Gasfort. Todos os direitos reservados.</span>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/company/rede-gasfort" target="_blank" rel="noopener noreferrer" title="LinkedIn">in</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => document.getElementById('header').classList.toggle('scrolled', window.scrollY > 40));
+    const observer = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('active'); observer.unobserve(e.target); } }), {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    let allStations = [], activeBrand = 'all';
+    const esc = v => String(v).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    function renderStations() {
+      const q=document.getElementById('searchInput').value.trim().toLocaleLowerCase('pt-BR');
+      const rows=allStations.filter(s=>(activeBrand==='all'||s.brand.toUpperCase()===activeBrand)&&(!q||[s.name,s.city,s.address,s.brand].some(v=>v.toLocaleLowerCase('pt-BR').includes(q))));
+      const list=document.getElementById('resultsList'); list.replaceChildren(); document.getElementById('resultCount').textContent=`${rows.length} de ${allStations.length} filiais`;
+      if(!rows.length){list.textContent='Nenhuma filial corresponde à busca.';return;}
+      rows.forEach(s=>{const card=document.createElement('article');card.className='result-card';card.innerHTML=`<h4>${esc(s.name)}</h4><p>${esc(s.city)} — ${esc(s.state)}<br>${esc(s.address)}</p><div class="result-services"><span>${esc(s.brand)}</span></div><a class="btn btn-dark route-link" href="${esc(s.mapsUrl)}" target="_blank" rel="noopener noreferrer">Abrir rota no Google Maps<span class="sr-only"> (abre em nova aba)</span></a>`;list.appendChild(card);});
+    }
+    fetch('data/filiais.json').then(r=>{if(!r.ok)throw Error('Falha ao ler dados locais');return r.json();}).then(d=>{if(!Array.isArray(d)||d.length!==27)throw Error('Esperados 27 registros oficiais');allStations=d;renderStations();}).catch(e=>{console.error(e);document.getElementById('resultCount').textContent='Não foi possível carregar as filiais';document.getElementById('resultsList').textContent='Os dados locais não puderam ser carregados. Recarregue a página.';});
+    document.querySelectorAll('.filter-chip').forEach(chip=>chip.addEventListener('click',()=>{activeBrand=chip.dataset.filter;document.querySelectorAll('.filter-chip').forEach(c=>{c.classList.toggle('active',c===chip);c.setAttribute('aria-pressed',String(c===chip));});renderStations();}));
+    document.getElementById('searchInput').addEventListener('input',renderStations);document.getElementById('searchBtn').addEventListener('click',renderStations);
+    // Mobile menu toggle simple
+    document.querySelector('.menu-toggle').addEventListener('click', () => {
+      const nav = document.querySelector('.nav');
+      if (nav.style.display === 'flex') { nav.style.display = ''; }
+      else {
+        nav.style.cssText = 'display:flex; position:fixed; top:76px; left:0; right:0; background:#fff; flex-direction:column; padding:24px; box-shadow:0 20px 40px rgba(0,0,0,0.1); gap:18px;';
+      }
+    });
+  </script>
+</body>
+</html>

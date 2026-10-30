@@ -1,0 +1,245 @@
+[
+  {
+    "id": "F01",
+    "name": "F01 - GRAMADO",
+    "brand": "SHELL",
+    "city": "GRAMADO",
+    "state": "RS",
+    "address": "AV DAS HORTENSIAS 1038, PLANALTO, 95670-000",
+    "mapsUrl": "https://maps.app.goo.gl/iFTb4sNCNKHWEzJ58"
+  },
+  {
+    "id": "F02",
+    "name": "F02 - RIO GRANDE",
+    "brand": "GASFORT",
+    "city": "RIO GRANDE",
+    "state": "RS",
+    "address": "RUA PINTO BANDEIRA 151",
+    "mapsUrl": "https://maps.app.goo.gl/2d6BiATkAso4CTxRA"
+  },
+  {
+    "id": "F04",
+    "name": "F04 - GUAIBA NEI BRITO",
+    "brand": "GASFORT",
+    "city": "GUAIBA",
+    "state": "RS",
+    "address": "AV DR NEI BRITO, 55, SANTA RITA, 92708720",
+    "mapsUrl": "https://maps.app.goo.gl/saKnsQFrEdE9LTo38"
+  },
+  {
+    "id": "F05",
+    "name": "F05 - GUAIBA CASTELO",
+    "brand": "CHARRUA",
+    "city": "GUAIBA",
+    "state": "RS",
+    "address": "AV MAL CASTELO BRANCO 1993, COLINA, 92700805",
+    "mapsUrl": "https://maps.app.goo.gl/T9JMphwgMqTTasD58"
+  },
+  {
+    "id": "F07",
+    "name": "F07 - CAPAO DO LEAO",
+    "brand": "IPIRANGA",
+    "city": "CAPAO DO LEAO",
+    "state": "RS",
+    "address": "AV NARCISO SILVA 1073, CENTRO, 96160000",
+    "mapsUrl": "https://maps.app.goo.gl/6V2foe6NfLt6DF3G8"
+  },
+  {
+    "id": "F08",
+    "name": "F08 - SAPIRANGA",
+    "brand": "SHELL",
+    "city": "SAPIRANGA",
+    "state": "RS",
+    "address": "RUA SEN SALGADO FILHO 1004, SÃO LUIZ, 93806312",
+    "mapsUrl": "https://maps.app.goo.gl/uS9skW3shCUZ6Sbn9"
+  },
+  {
+    "id": "F09",
+    "name": "F09 - POA",
+    "brand": "GASFORT",
+    "city": "PORTO ALEGRE",
+    "state": "RS",
+    "address": "AV TRAMANDAI 42, IPANEMA, 91760050",
+    "mapsUrl": "https://maps.app.goo.gl/9KiEaLmrx18m5LFd9"
+  },
+  {
+    "id": "F10",
+    "name": "F10 - CAPIVARI",
+    "brand": "IPIRANGA",
+    "city": "CAPIVARI DO SUL",
+    "state": "RS",
+    "address": "AV TELMO SESSIM 1546, CENTRO, 95552000",
+    "mapsUrl": "https://maps.app.goo.gl/1sEZuMwHbb9bpocd6"
+  },
+  {
+    "id": "F11",
+    "name": "F11 - BMZINHO",
+    "brand": "GASFORT",
+    "city": "TAQUARA",
+    "state": "RS",
+    "address": "RUA MAL FLORIANO 1726, CENTRO, 95600032",
+    "mapsUrl": "https://maps.app.goo.gl/DtExKNAA4siHVecx5"
+  },
+  {
+    "id": "F12",
+    "name": "F12 - GP",
+    "brand": "IPIRANGA",
+    "city": "PAROBE",
+    "state": "RS",
+    "address": "ROD ERS 239 5353, CONCEICAO DO FUNIL, 95630000",
+    "mapsUrl": "https://maps.app.goo.gl/NXFSnH4YFnkakveD6"
+  },
+  {
+    "id": "F13",
+    "name": "F13 - PORTICO",
+    "brand": "IPIRANGA",
+    "city": "ROLANTE",
+    "state": "RS",
+    "address": "EST RS 239 7674, INTERIOR, 95690000",
+    "mapsUrl": "https://maps.app.goo.gl/UgoQePsnuECXeECL9"
+  },
+  {
+    "id": "F14",
+    "name": "F14 - ROLANTCHE",
+    "brand": "GASFORT",
+    "city": "ROLANTE",
+    "state": "RS",
+    "address": "AV TENENTE PEDRO VON MUHLEN 661, CENTRO, 95690000",
+    "mapsUrl": "https://maps.app.goo.gl/cbZxoPmZSTedqoQ66"
+  },
+  {
+    "id": "F15",
+    "name": "F15 - STO ANTONIO",
+    "brand": "SHELL",
+    "city": "SANTO ANTONIO DA PATRULHA",
+    "state": "RS",
+    "address": "RUA JOAO CARLOS BEMFICA 29, MENINO DEUS, 95500000",
+    "mapsUrl": "https://maps.app.goo.gl/tYoK6yYd8495vwT89"
+  },
+  {
+    "id": "F16",
+    "name": "F16 - CHEGA AI",
+    "brand": "GASFORT",
+    "city": "TAQUARA",
+    "state": "RS",
+    "address": "AV OSCAR MARTINS RANGEL 3526, JARDIM DO PRADO, 95612450",
+    "mapsUrl": "https://maps.app.goo.gl/aJ6H3CCQjAk8UH92A"
+  },
+  {
+    "id": "F17",
+    "name": "F17 - SG",
+    "brand": "IPIRANGA",
+    "city": "SAO GABRIEL",
+    "state": "RS",
+    "address": "AV ANTONIO TRILHA 1222, CENTRO, 97310010",
+    "mapsUrl": "https://maps.app.goo.gl/hzuKYtkR4Eat47yp9"
+  },
+  {
+    "id": "F18",
+    "name": "F18 - GABRIELENSE",
+    "brand": "CHARRUA",
+    "city": "SAO GABRIEL",
+    "state": "RS",
+    "address": "RUA GEN JOAO MANOEL 579, CENTRO, 97300000",
+    "mapsUrl": "https://maps.app.goo.gl/sdXxNZg96HR2DUoY6"
+  },
+  {
+    "id": "F19",
+    "name": "F19 - MARGARIDA",
+    "brand": "IPIRANGA",
+    "city": "SANTA MARGARIDA DO SUL",
+    "state": "RS",
+    "address": "EST BR 290 800, CENTRO, 97335000",
+    "mapsUrl": "https://maps.app.goo.gl/Y5u73XrrEu4nPBdi6"
+  },
+  {
+    "id": "F20",
+    "name": "F20 - FELICITA",
+    "brand": "CHARRUA",
+    "city": "DOM FELICIANO",
+    "state": "RS",
+    "address": "RUA BORGES DE MEDEIROS 266, CENTRO, 96190000",
+    "mapsUrl": "https://maps.app.goo.gl/dVcnM37N1ZP46Qv2A"
+  },
+  {
+    "id": "F21",
+    "name": "F21 - CANELA",
+    "brand": "IPIRANGA",
+    "city": "CANELA",
+    "state": "RS",
+    "address": "PC DAS NACOES 15, CENTRO, 95680000",
+    "mapsUrl": "https://maps.app.goo.gl/E9VC3S2xSaT3gzUu5"
+  },
+  {
+    "id": "F22",
+    "name": "F22 - PELOTAS",
+    "brand": "IPIRANGA",
+    "city": "PELOTAS",
+    "state": "RS",
+    "address": "AV AFONSO PORTO EMERIM 5295",
+    "mapsUrl": "https://maps.app.goo.gl/iTUHbqnuepfwGXxa6"
+  },
+  {
+    "id": "F23",
+    "name": "F23 - CASSINO",
+    "brand": "IPIRANGA",
+    "city": "RIO GRANDE",
+    "state": "RS",
+    "address": "AV RIO GRANDE 802, CASSINO",
+    "mapsUrl": "https://maps.app.goo.gl/avu8UwR8Fei3LeSZ7"
+  },
+  {
+    "id": "F24",
+    "name": "F24 - FAROL",
+    "brand": "IPIRANGA",
+    "city": "SANTO ANTONIO DA PATRULHA",
+    "state": "RS",
+    "address": "RS-239, 10230 - Planalto, Parobé - RS, 95630-000",
+    "mapsUrl": "https://maps.app.goo.gl/kJqoiCpoqyua9b5a7"
+  },
+  {
+    "id": "F40",
+    "name": "F40 - LATINA",
+    "brand": "SANTA LUCIA",
+    "city": "TAQUARA",
+    "state": "RS",
+    "address": "R TRISTAO MONTEIRO 1781, JD DO PRADO",
+    "mapsUrl": "https://maps.app.goo.gl/eKnKw8nWYBuxMcy26"
+  },
+  {
+    "id": "F41",
+    "name": "F41 - STO ANTONIO 2",
+    "brand": "SANTA LUCIA",
+    "city": "SANTO ANTONIO DA PATRULHA",
+    "state": "RS",
+    "address": "Av. Cel. Victor Villa Verde, 852 - Pitangueiras, Santo Antônio da Patrulha - RS, 95500-000",
+    "mapsUrl": "https://maps.app.goo.gl/hLdmSsv8NzX4LrEQ6"
+  },
+  {
+    "id": "F42",
+    "name": "F42 - STO ANTONIO 3",
+    "brand": "CHARRUA",
+    "city": "SANTO ANTONIO DA PATRULHA",
+    "state": "RS",
+    "address": "AV AFONSO PORTO EMERIM 5295",
+    "mapsUrl": "https://maps.app.goo.gl/U2XZpcfj3dmkZp5S6"
+  },
+  {
+    "id": "F43",
+    "name": "F43 - COSTA DOCE",
+    "brand": "IPIRANGA",
+    "city": "RIO GRANDE",
+    "state": "RS",
+    "address": "SENADOR SALGADO FILHO 210,  PARQUE SALGADO FILHO",
+    "mapsUrl": "https://maps.app.goo.gl/hrCngGRJuPcWXbzz7"
+  },
+  {
+    "id": "F44",
+    "name": "F44 - POA CAVALHADA",
+    "brand": "IPIRANGA",
+    "city": "PORTO ALEGRE",
+    "state": "RS",
+    "address": "Av. da Cavalhada, 4260 - Cavalhada, Porto Alegre - RS, 91470-000",
+    "mapsUrl": "https://maps.app.goo.gl/tLpHDDiydNnmuS3H9"
+  }
+]
