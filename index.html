@@ -76,8 +76,10 @@
     }
     .header.scrolled { background: rgba(255,255,255,0.72); box-shadow: var(--shadow-sm); }
     .header-inner { display: flex; align-items: center; justify-content: space-between; height: 76px; }
-    .logo { display: flex; align-items: center; gap: 12px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 20px; color: var(--dark); }
-    .logo img { width: 44px; height: 44px; border-radius: 12px; object-fit: cover; }
+    .logo { display: inline-flex; align-items: center; color: var(--dark); line-height: 0; flex: 0 0 auto; }
+    .logo img { display: block; width: clamp(128px, 14vw, 168px); height: auto; max-height: 50px; object-fit: contain; }
+    .footer-brand .logo img { width: clamp(142px, 16vw, 184px); }
+    @media (max-width: 380px) { .logo img { width: 126px; } }
     .nav { display: flex; align-items: center; gap: 32px; }
     .nav a { font-weight: 600; font-size: 14px; color: var(--dark-800); position: relative; }
     .nav a::after {
@@ -400,8 +402,7 @@
   <header class="header" id="header">
     <div class="container header-inner">
       <a href="#main-content" class="logo">
-        <img src="assets/gasfort-logo.jpg" alt="Rede Gasfort">
-        Rede Gasfort
+        <img src="assets/gasfort-wordmark-transparent.png" alt="Rede Gasfort" width="168" height="49">
       </a>
       <nav class="nav">
         <a href="#postos">Postos</a>
@@ -617,7 +618,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="#main-content" class="logo" style="color:#fff;"><img src="assets/gasfort-logo.jpg" alt="Rede Gasfort"> Rede Gasfort</a>
+          <a href="#main-content" class="logo" style="color:#fff;"><img src="assets/gasfort-wordmark-transparent.png" alt="Rede Gasfort" width="168" height="49"></a>
           <p>Consulte as filiais e informações institucionais disponíveis nos canais oficiais da Rede Gasfort.</p>
         </div>
         <div class="footer-col">
